@@ -1,7 +1,7 @@
 name: Daily Job Update
 on:
   schedule:
-    - cron: '0 0 * * *' # 매일 오전 9시 (KST)
+    - cron: '0 0 * * *' # 매일 오전 8시 (KST)
   workflow_dispatch: # 이 코드가 있어야 'Run workflow' 버튼이 생깁니다!
 
 jobs:
