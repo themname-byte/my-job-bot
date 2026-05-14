@@ -1,20 +1,21 @@
 name: Daily Job Update
 on:
   schedule:
-    - cron: '0 0 * * *' # 한국 시간 매일 오전 8시
-  workflow_dispatch: # 수동 실행 버튼 생성
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4 # v4로 업데이트
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # v5로 업데이트
         with:
-          python-version: '3.9'
+          python-version: '3.12' # 최신 파이썬 버전 사용
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install requests gspread google-auth
       - name: Run Scraper
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
