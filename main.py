@@ -8,9 +8,9 @@ from email.mime.multipart import MIMEMultipart
 from google.oauth2.service_account import Credentials
 
 def send_email(rows):
-    sender = os.environ['themname@gmail.com']
-    password = os.environ['jnyv gjsf gqxv xmgd']
-    receiver = os.environ['themname@gmail.com']
+    sender = os.environ['GMAIL_ADDRESS']        # ← 이렇게 되어 있어야 함
+    password = os.environ['GMAIL_APP_PASSWORD'] # ← 이렇게 되어 있어야 함
+    receiver = os.environ['GMAIL_ADDRESS']
 
     msg = MIMEMultipart()
     msg['Subject'] = f'오늘의 원티드 채용공고 ({len(rows)-1}건)'
