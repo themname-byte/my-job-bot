@@ -3,6 +3,8 @@ on:
   schedule:
     - cron: '0 0 * * *' # 한국 시간 매일 오전 5시 55분
   workflow_dispatch: # 자동
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # 추가
 jobs:
   build:
     runs-on: ubuntu-latest
