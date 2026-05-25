@@ -3,15 +3,13 @@ on:
   schedule:
     - cron: '0 0 * * *' # 한국 시간 매일 오전 5시 55분
   workflow_dispatch: # 자동
-
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
       - name: Install dependencies
