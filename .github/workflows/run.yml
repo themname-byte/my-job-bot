@@ -4,7 +4,7 @@ on:
     - cron: '0 0 * * *' # 한국 시간 매일 오전 5시 55분
   workflow_dispatch: # 자동
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # 추가
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,4 +19,6 @@ jobs:
       - name: Run Scraper
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python main.py
